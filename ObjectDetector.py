@@ -52,20 +52,22 @@ def detectObjects(outputs, frame):
         x1, y1 = x + w, y + h
         cv.rectangle(frame, (x, y), (x + w, y + h), (255, 255, 0), 2)
 
+        length = 25
+
         # Making the corner edges thicker to make it look better
         # Top Left (x, y)
-        cv.line(frame, (x, y), (x + 20, y), (255, 255, 0), 7)
-        cv.line(frame, (x, y), (x, y + 20), (255, 255, 0), 7)
+        cv.line(frame, (x, y), (x + length, y), (255, 255, 0), 7)
+        cv.line(frame, (x, y), (x, y + length), (255, 255, 0), 7)
         # Top Right (x1, y)
-        cv.line(frame, (x1, y), (x1 - 20, y), (255, 255, 0), 7)
+        cv.line(frame, (x1, y), (x1 - length, y), (255, 255, 0), 7)
         cv.line(frame, (x1, y),
-         (x1, y + 20), (255, 255, 0), 7)
+         (x1, y + length), (255, 255, 0), 7)
         # Bottom Left (x, y1)
-        cv.line(frame, (x, y1), (x + 20, y1), (255, 255, 0), 7)
-        cv.line(frame, (x, y1), (x, y1 - 20), (255, 255, 0), 7)
+        cv.line(frame, (x, y1), (x + length, y1), (255, 255, 0), 7)
+        cv.line(frame, (x, y1), (x, y1 - length), (255, 255, 0), 7)
         #  # Bottom Right (x1, y)
-        cv.line(frame, (x1, y1), (x1 - 20, y1), (255, 255, 0), 7)
-        cv.line(frame, (x1, y1), (x1, y1 - 20), (255, 255, 0), 7)
+        cv.line(frame, (x1, y1), (x1 - length, y1), (255, 255, 0), 7)
+        cv.line(frame, (x1, y1), (x1, y1 - length), (255, 255, 0), 7)
         
         cv.putText(frame, f"{classNames[classIDs[i]]} {int(con[i] * 100)}%", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 0), 2)
 
